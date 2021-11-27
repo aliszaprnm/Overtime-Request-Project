@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OvertimeProject", "OvertimeProject\OvertimeProject.csproj", "{E4C79EAD-3932-4D4A-9914-2FF371D2AAE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OvertimeProject", "OvertimeProject\OvertimeProject.csproj", "{E4C79EAD-3932-4D4A-9914-2FF371D2AAE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{27F44B74-684F-4189-A047-827FCC720A60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E4C79EAD-3932-4D4A-9914-2FF371D2AAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C79EAD-3932-4D4A-9914-2FF371D2AAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C79EAD-3932-4D4A-9914-2FF371D2AAE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F44B74-684F-4189-A047-827FCC720A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F44B74-684F-4189-A047-827FCC720A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F44B74-684F-4189-A047-827FCC720A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F44B74-684F-4189-A047-827FCC720A60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

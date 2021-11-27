@@ -1,0 +1,40 @@
+﻿@{ Layout = "_Login"; }
+
+<div class="container">
+    <div class="img">
+        <img src="~/login/img/login.png">
+    </div>
+    <div class="login-content">
+        <form method="post" action="/Login/Auth" class="user" id="loginForm" name="login">
+            <img src="~/login/img/login-user-icon.png">
+            <h2 class="title">Welcome</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input type="text" name="Email" id="Email" class="input">
+                </div>
+            </div>
+            <span class="text-danger" id="Email-errorMsg"></span>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" name="Password" id="Password" class="input">
+                </div>
+            </div>
+            <span class="text-danger" id="Pass-errorMsg"></span>
+            <a href="#">Forgot Password?</a>
+            @*<a href="#">Create an Account</a>
+                <div hidden>
+                    <button type="submit" id="submitForm" class="btn btn-primary btn-user btn-block"> </button>
+                </div>*@
+            <button @*type="button"*@ type="submit" class="btn" value="Login" @*onclick="validasiLogin()"*@ id="btnLogin">Login</button>
+            <a href="Home/Index" style="text-align:center; color:cadetblue">Back to Home</a>
+        </form>
+    </div>
+</div>
