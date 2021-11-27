@@ -1,0 +1,24 @@
+﻿using OvertimeProject.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace OvertimeProject.ViewModels
+{
+    public class OvertimeFormVM
+    {
+        public int RequestId { get; set; }
+        public string OvertimeName { get; set; }
+        public DateTime RequestDate { get; set; }
+        public string NIP { get; set; }
+        public string Email { get; set; }
+        public string AccountId { get; set; }
+        //public int RoleId { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string Task { get; set; }
+        public int Difference { get; set; }
+        public StatusRequest Status { get; set; }
+    }
+}
