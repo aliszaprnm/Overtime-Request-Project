@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_LandingPage";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">This application is used to manage the overtime requests.</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">Have an account?</h2>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <div class="text-center text-lg-start">
+                    <a asp-area="" asp-controller="Login" asp-action="Index" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                        <span>Sign In</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    @*<button class="btn-get-started" data-toggle="modal" data-target="#myModal">Sign In <i class="bi bi-arrow-right"></i></button>*@
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="~/template/assets/img/hero-img.png" class="img-fluid" alt="">
+        </div>
+    </div>
+</div>

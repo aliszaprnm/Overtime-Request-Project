@@ -1,0 +1,20 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.input-div.error, textarea.error {
+    border: 1px dashed red !important;
+    font-weight: 300;
+    color: red !important;
+}
+
+.error {
+    color: red;
+    font-size: 10px !important;
+    /*padding: 25px 0px 0px 20px;*/
+}
+
+select.error {
+    border: 1px dashed red;
+    font-weight: 300;
+    color: red;
+}
