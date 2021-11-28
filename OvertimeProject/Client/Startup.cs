@@ -49,6 +49,7 @@ namespace Client
                 };
             });
             services.AddScoped<LoginRepository>();
+            services.AddScoped<AccountRepository>();
             services.AddScoped<Address>();
         }
 

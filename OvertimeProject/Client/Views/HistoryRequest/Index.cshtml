@@ -1,0 +1,166 @@
+﻿@{
+    Layout = "_HistoryRequest";
+    ViewData["Email"] = @ViewBag.sessionEmail;
+    ViewData["NIK"] = @ViewBag.sessionNIK;
+    ViewData["FirstName"] = @ViewBag.sessionFName;
+    ViewData["LastName"] = @ViewBag.sessionLName;
+    //ViewData["Role"] = @ViewBag.sessionRole;
+}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h3 class="m-0 font-weight-bold text-primary">Overtime Request History</h3>
+    @*<p class="mb-4">
+            DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                                                                       href="https://datatables.net">official DataTables documentation</a>.
+        </p>*@
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            @*<h6 class="m-0 font-weight-bold text-primary">Overtime Request History</h6>*@
+            <button type="button" class="btn btn-success" onclick="exportToExcel();"><i class="fas fa-file-excel"></i> Excel</button>
+            <button type="button" class="btn btn-danger" onclick="exportToPdf();"><i class="fas fa-file-pdf"></i> PDF</button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="historyTable" width="100%" cellspacing="0">
+                    <thead style="background-color:#4E73DF; color:white">
+                        <!--<tr>
+            <th rowspan="2" style="text-align:center; vertical-align:middle">No</th>-->
+                        @*<th>Request Date</th>*@
+                        <!--<th colspan="2" style="text-align:center">
+                    Date
+                </th>
+                <th colspan="2" style="text-align:center">Time</th>
+                <th rowspan="2" style="text-align:center; vertical-align:middle">Total Hours</th>
+                <th rowspan="2" style="text-align:center; vertical-align:middle">Task</th>
+                <th rowspan="2" style="text-align:center; vertical-align:middle">Approval Status</th>
+                <th rowspan="2" style="text-align:center; vertical-align:middle">Action</th>
+            </tr>
+            <tr>
+                <th style="text-align:center">Start</th>
+                <th style="text-align:center">End</th>
+                <th style="text-align:center">Start</th>
+                <th style="text-align:center">End</th>
+            </tr>-->
+                        <tr>
+                            <th style="text-align:center">No</th>
+                            <th style="text-align:center">Request Date</th>
+                            <th style="text-align:center">Total Hours</th>
+                            <th style="text-align:center">Task</th>
+                            <th style="text-align:center">Approval Status</th>
+                            <th style="text-align:center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableHistory">
+                        @*<tr>
+                    <td>1</td>
+                    <td>2021-11-10</td>
+                    <td>2021-11-10</td>
+                    <td>18:00:00</td>
+                    <td>20:00:00</td>
+                    <td>2 Hours</td>
+                    <td>Training MCC Batch 58</td>
+                    <td>Pending</td>
+                    <td>Detail</td>
+                </tr>*@
+                    </tbody>
+                </table>
+                <input id="nips" style="display:none" value="@ViewData["NIK"]">
+                @*<input id="role" style="display:none" value="@ViewData["Role"]">*@
+                <input id="emailS" style="display:none" value="@ViewData["Email"]">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+<!-- Detail Modal -->
+<div class="modal fade bd-example-modal-l" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-l">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="regist">Overtime Request Detail</h5>
+                <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formDetail">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" placeholder="NIK" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartDate">Start Date</label>
+                            <input type="date" class="form-control" id="dataStartDate" name="dataStartDate" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataEndDate">End Date</label>
+                            <input type="date" class="form-control" id="dataEndDate" name="dataEndDate" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" readonly>
+                        </div>
+                    </div>
+                    @*<div>
+                            <label for="dataApprover">Approver</label>
+                            <input type="text" readonly class="form-control" id="manager" value="@ViewBag.manager" autocomplete="off" required>
+                        </div>*@
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
