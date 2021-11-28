@@ -37,7 +37,7 @@ namespace OvertimeProject.Repository.Data
                 new Claim("NIK", search.NIK),
                 //new Claim(ClaimTypes.Role, searchRole.Roles.RoleName)
                 new Claim("Role", searchRole.Role.RoleName),
-                new Claim("ManagerId", search.ManagerId)
+                new Claim("managerId", search.ManagerId)
 
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -79,7 +79,7 @@ namespace OvertimeProject.Repository.Data
                     Email = register.Email,
                     Phone = register.Phone,
                     DepartmentId = 2,
-                    ManagerId = "",
+                    ManagerId = register.ManagerId,
                 };
                 myContext.Add(employee);
                 result = myContext.SaveChanges();

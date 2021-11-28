@@ -115,7 +115,7 @@ namespace OvertimeProject.Controllers
             }
         }
         [HttpGet("GetAllRequestByStatusAndNIK")]
-        public ActionResult GetAllRequestByStatusAndNIK([FromQuery(Name = "status")] int status, [FromQuery(Name = "nip")] string NIK)
+        public ActionResult GetAllRequestByStatusAndNIK([FromQuery(Name = "status")] int status, [FromQuery(Name = "NIK")] string NIK)
         {
             var get = repo.GetAllRequestByStatusAndNIK(status, NIK);
             if (get != null)

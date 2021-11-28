@@ -22,16 +22,6 @@ namespace Client.Controllers
 
         public IActionResult Index()
         {
-            /*var token = HttpContext.Session.GetString("JWToken");
-            var handler = new JwtSecurityTokenHandler();
-            var jsonToken = handler.ReadToken(token);
-            var tokenS = jsonToken as JwtSecurityToken;
-
-            ViewBag.sessionNIK = tokenS.Claims.First(claim => claim.Type == "NIK").Value;
-            ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
-            ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
-            ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "role").Value;
-            ViewBag.sessionEmail = tokenS.Claims.First(claim => claim.Type == "Email").Value;*/
             return View();
         }
 

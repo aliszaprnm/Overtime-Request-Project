@@ -34,7 +34,7 @@ namespace OvertimeProject
             services.AddCors(c =>
             {
                 //c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44308").AllowAnyMethod().AllowCredentials().AllowAnyHeader());
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44325").AllowAnyMethod().AllowCredentials().AllowAnyHeader());
             });
 
             services.AddControllers();
@@ -84,7 +84,7 @@ namespace OvertimeProject
 
             app.UseRouting();
 
-            //app.UseCors(options => options.WithOrigins("https://localhost:44308"));
+            //app.UseCors(options => options.WithOrigins("https://localhost:44325"));
             app.UseCors("AllowOrigin");
             app.UseAuthentication();
 

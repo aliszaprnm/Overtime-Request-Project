@@ -1,5 +1,6 @@
 ﻿using Client.Base;
 using Client.Repositories.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OvertimeProject.Models;
@@ -33,7 +34,7 @@ namespace Client.Controllers
                 return RedirectToAction("Index", "Login");
             }
             HttpContext.Session.SetString("JWToken", jwToken.Token);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
         [HttpPost]
         public async Task<HttpStatusCode> Register(RegisterVM registerVM)
@@ -42,10 +43,11 @@ namespace Client.Controllers
             return result;
         }
 
+        [Authorize]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult ForgotPassword()
