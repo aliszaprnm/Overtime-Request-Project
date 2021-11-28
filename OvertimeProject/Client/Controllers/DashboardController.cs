@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Client.Controllers
 {
     public class DashboardController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("JWToken");

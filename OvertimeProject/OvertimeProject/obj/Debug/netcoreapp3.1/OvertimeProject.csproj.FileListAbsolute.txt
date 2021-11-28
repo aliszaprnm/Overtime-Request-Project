@@ -195,7 +195,6 @@ C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.csproj.AssemblyReference.cache
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.AssemblyInfoInputs.cache
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.AssemblyInfo.cs
@@ -208,3 +207,4 @@ C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.dll
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.pdb
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.genruntimeconfig.cache
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\OvertimeProject\obj\Debug\netcoreapp3.1\OvertimeProject.csproj.CopyComplete
