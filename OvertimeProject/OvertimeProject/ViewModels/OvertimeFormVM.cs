@@ -18,7 +18,6 @@ namespace OvertimeProject.ViewModels
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Task { get; set; }
-        public int Difference { get; set; }
         public StatusRequest Status { get; set; }
     }
 }

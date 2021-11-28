@@ -64,7 +64,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="/Home/NewRequest">
+                <a class="nav-link" href="/NewRequest">
                     <i class="fas fa-fw fa-clock"></i>
                     <span>New Request</span>
                 </a>
@@ -88,15 +88,15 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         @*<h6 class="collapse-header">Overtime Requests:</h6>*@
                         <a class="collapse-item" href="/HistoryRequest">Current Requests</a>
-                        <a class="collapse-item" href="/Home/HistoryRequest">Approved Requests</a>
-                        <a class="collapse-item" href="/Home/HistoryRequest">Rejected Requests</a>
+                        <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
+                        <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
                     </div>
                 </div>
             </li>
 
 
 
-            @if (ViewBag.sessionRole == "Finance" || ViewBag.sessionRole == "Manager")
+            @if (ViewBag.sessionRole == "Finance Controller" || ViewBag.sessionRole == "Manager")
             {
                 <!-- Divider -->
                 @*<hr class="sidebar-divider">*@
@@ -117,8 +117,8 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Overtime Approval:</h6>
-                            <a class="collapse-item" href="/Validation">Request Validation</a>
-                            <a class="collapse-item" href="/Home/HistoryRequest">Approval History</a>
+                            <a class="collapse-item" href="/Approval">Request Validation</a>
+                            <a class="collapse-item" href="/ApprovalHistory">Approval History</a>
                         </div>
                     </div>
                 </li>

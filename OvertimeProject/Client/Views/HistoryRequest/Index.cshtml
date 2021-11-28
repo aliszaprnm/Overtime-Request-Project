@@ -10,7 +10,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h3 class="m-0 font-weight-bold text-primary">Overtime Request History</h3>
+    <h3 class="m-0 font-weight-bold text-primary">Current Overtime Requests</h3>
     @*<p class="mb-4">
             DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
@@ -49,8 +49,8 @@
                         <tr>
                             <th style="text-align:center">No</th>
                             <th style="text-align:center">Request Date</th>
-                            <th style="text-align:center">Total Hours</th>
                             <th style="text-align:center">Task</th>
+                            <th style="text-align:center">Total Hours</th>
                             <th style="text-align:center">Approval Status</th>
                             <th style="text-align:center">Action</th>
                         </tr>
@@ -113,18 +113,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="dataStartDate">Start Date</label>
-                            <input type="date" class="form-control" id="dataStartDate" name="dataStartDate" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label for="dataStartTime">Start Time</label>
                             <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataEndDate">End Date</label>
-                            <input type="date" class="form-control" id="dataEndDate" name="dataEndDate" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dataEndTime">End Time</label>
@@ -157,7 +147,7 @@
                         </div>*@
                 </form>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>
+                    @*<button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>*@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
                 </div>
             </div>

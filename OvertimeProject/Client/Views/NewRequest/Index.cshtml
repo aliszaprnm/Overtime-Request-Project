@@ -1,0 +1,135 @@
+﻿@{
+    Layout = "_NewRequest";
+    ViewData["Email"] = @ViewBag.sessionEmail;
+    ViewData["NIK"] = @ViewBag.sessionNIK;
+    ViewData["FirstName"] = @ViewBag.sessionFName;
+    ViewData["LastName"] = @ViewBag.sessionLName;
+}
+
+<input id="nik" style="display:none" value="@ViewData["NIK"]">
+<input id="email" style="display:none" value="@ViewData["Email"]">
+<input id="firstname" style="display:none" value="@ViewData["FirstName"]">
+<input id="lastname" style="display:none" value="@ViewData["LastName"]">
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-header">
+            <h3 class="card-title text-center" style="color:black"><b>   Overtime Request Form</b></h3>
+        </div>
+        <div id="request" class="section">
+            <div class="section-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 order-xl-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="request-form">
+                                        <br />
+                                        <form class="needs-validation" id="formRequest" novalidate>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3" style="display:none">
+                                                    <label for="name">NIK</label>
+                                                    <input value="" id="nik" class="form-control" name="nik">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3">
+                                                    <label for="overtimeTitle">Overtime Name</label>
+                                                    <input value="" id="overtimeTitle" class="form-control" name="overtimeTitle">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3">
+                                                    <label for="date">Request Date</label>
+                                                    <div class="input-group date">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                        </div>
+                                                        <input class="form-control datepicker" placeholder="Select" type="text" id="date" autocomplete="off" required name="date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3">
+                                                    <label for="starttime">Start Time</label>
+                                                    <div class="input-group date">
+                                                        <input type="time" id="starttime" class="form-control" name="starttime">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3">
+                                                    <label for="endtime">End Time</label>
+                                                    <div class="input-group date">
+                                                        <input type="time" id="endtime" class="form-control" name="endtime">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md mb-3">
+                                                    <label for="task">Task Job</label>
+                                                    <textarea id="task" required="required" class="form-control" name="task"></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-primary" onclick="NewRequest()">Add</button>
+                                            <div hidden>
+                                                <label for="addsalary">Additional Commision:</label><br>
+                                                <input type="text" id="commision" name="commision">
+                                            </div>
+                                            <div hidden>
+                                                <label for="overtimeformid">OvertimeForm Id: </label><br>
+                                                <input type="text" id="overtimeformid" name="overtimeformid">
+                                            </div>
+                                            <div id="overtimeLimit" style="color: red; font-size: 15px; display: none;">Quota of overtime per day should not exceed 3 hours!!</div>
+                                            <div class="row" style="width:25%">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 order-xl-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <div class="table-wrap">
+                                            <table class="table myaccordion table-hover" id="myTables">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>NIK</th>
+                                                        <th>Request Date</th>
+                                                        <th>Start Time</th>
+                                                        <th>End Time</th>
+                                                        <th>Task</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="bodyTableRequest">
+                                                </tbody>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <button type="button" class="btn btn-success" onclick="OvertimeForm()">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

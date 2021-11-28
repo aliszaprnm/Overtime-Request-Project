@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Client.Controllers
 {
     public class HistoryRequestController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             var token = HttpContext.Session.GetString("JWToken");
@@ -21,8 +23,8 @@ namespace Client.Controllers
             ViewBag.sessionNIK = tokenS.Claims.First(claim => claim.Type == "NIK").Value;
             ViewBag.sessionFName = tokenS.Claims.First(claim => claim.Type == "FirstName").Value;
             ViewBag.sessionLName = tokenS.Claims.First(claim => claim.Type == "LastName").Value;
-            /*ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "Role").Value;
-            ViewData["Role"] = ViewBag.sessionRole;*/
+            ViewBag.sessionRole = tokenS.Claims.First(claim => claim.Type == "Role").Value;
+            ViewData["Role"] = ViewBag.sessionRole;
             if (ViewBag.sessionEmail != null)
             {
                 return View();

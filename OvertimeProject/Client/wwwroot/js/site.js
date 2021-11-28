@@ -4,8 +4,18 @@
 // Write your JavaScript code.
 var stringnip = $("#NIK").val();
 
-$.ajax({
+/*$.ajax({
     url: 'https://localhost:44314/API/Requests/GetRequestByNIK/' + stringnip,
+    dataSrc: ''
+}).done((result) => {
+    *//*    console.log(result.length);*//*
+    $("#lblReq").html(result.length);
+}).fail((error) => {
+    console.log(error);
+});*/
+
+$.ajax({
+    url: 'https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=1&nik=' + stringnip,
     dataSrc: ''
 }).done((result) => {
     /*    console.log(result.length);*/

@@ -111,6 +111,8 @@ namespace OvertimeProject.Repository.Data
                     OvertimeName = f.Request.OvertimeName,
                     RequestDate = f.Request.RequestDate,
                     NIK = f.NIK,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
                     StartTime = f.Request.StartTime,
                     EndTime = f.Request.EndTime,
                     Task = f.Request.Task,
@@ -351,7 +353,7 @@ namespace OvertimeProject.Repository.Data
             }*/
             else if (approvalVM.Status == 3)
             {
-                userRequest.Status = StatusRequest.ApproveByFinance;
+                userRequest.Status = StatusRequest.Reject;
                 sendEmail.SendRejectNotificationToEmployee(userRequest.Email);
             }
             myContext.Update(userRequest);

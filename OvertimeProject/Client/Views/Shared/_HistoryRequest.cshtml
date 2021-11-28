@@ -23,6 +23,7 @@
 
     <!-- Custom styles for this page -->
     <link href="~/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/css/history.css" rel="stylesheet" />
 
 </head>
 
@@ -62,7 +63,7 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="/Home/NewRequest">
+                <a class="nav-link" href="/NewRequest">
                     <i class="fas fa-fw fa-clock"></i>
                     <span>New Request</span>
                 </a>
@@ -78,32 +79,32 @@
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item active" href="/HistoryRequest">Current Requests</a>
-                        <a class="collapse-item" href="/Home/HistoryRequest">Approved Requests</a>
-                        <a class="collapse-item" href="/Home/HistoryRequest">Rejected Requests</a>
+                        <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
+                        <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
                     </div>
                 </div>
             </li>
 
 
 
-            @if (ViewBag.sessionRole == "Finance" || ViewBag.sessionRole == "Manager")
+            @if (ViewBag.sessionRole == "Finance Controller" || ViewBag.sessionRole == "Manager")
             {
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                   aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-check-circle"></i>
-                    <span>Approval</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Overtime Approval:</h6>
-                        <a class="collapse-item" href="/Validation">Request Validation</a>
-                        <a class="collapse-item" href="/Home/HistoryRequest">Approval History</a>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                       aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-check-circle"></i>
+                        <span>Approval</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Overtime Approval:</h6>
+                            <a class="collapse-item" href="/Approval">Request Validation</a>
+                            <a class="collapse-item" href="/ApprovalHistory">Approval History</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
 
             }
 
@@ -241,6 +242,7 @@
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <script src="~/js/history.js" asp-append-version="true"></script>
 
 </body>
