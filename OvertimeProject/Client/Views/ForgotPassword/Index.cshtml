@@ -1,0 +1,26 @@
+﻿@{ Layout = "_ForgotPassword"; }
+
+<div class="container">
+    <div class="img">
+        <img src="~/login/img/forgotpassword.png">
+    </div>
+    <div class="login-content">
+        <form method="post" action="javascript:ForgotPassword()" class="user" id="ResetPasswordForm">
+            <img src="~/login/img/forgot.png" width="80px" height="30px">
+            <br />
+            <h3 class="title">Forgot Password</h3>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <h5>Email</h5>
+                    <input type="text" name="Email" id="Email" class="input">
+                </div>
+            </div>
+            <span class="text-danger" id="Email-errorMsg"></span>
+            <button @*type="button"*@ type="submit" class="btn" value="Login" @*onclick="validasiLogin()"*@ id="btnLogin">Reset Password</button>
+            <a href="/Login" style="text-align:center; color:cadetblue">Back to Login</a>
+        </form>
+    </div>
+</div>

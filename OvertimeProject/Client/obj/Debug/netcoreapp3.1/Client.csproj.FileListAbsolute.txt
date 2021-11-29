@@ -347,3 +347,11 @@ C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Approval\Index.cshtml.g.cs
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\NewRequest\Index.cshtml.g.cs
 C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_NewRequest.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\ApprovedByManager\Index.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ApprovedByManager.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\ApprovalHistoryManager\Index.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\ApprovalHistoryFinance\Index.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ApprovalHistoryFinance.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ApprovalHistoryManager.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ForgotPassword.cshtml.g.cs
+C:\Users\nkhal\Desktop\Overtime-Request-Project\OvertimeProject\Client\obj\Debug\netcoreapp3.1\Razor\Views\ForgotPassword\Index.cshtml.g.cs

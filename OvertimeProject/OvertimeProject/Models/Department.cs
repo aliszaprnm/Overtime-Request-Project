@@ -15,8 +15,6 @@ namespace OvertimeProject.Models
         public int DepartmentId { get; set; }
         [Required]
         public string DepartmentName { get; set; }
-        [Required]
-        public string DepartmentLoc { get; set; }
         [JsonIgnore]
         public virtual ICollection<Employee> Employee { get; set; }
     }

@@ -14,18 +14,16 @@
     <input id="managerId" style="display:none" value="@ViewData["NIK"]" />
 
     <!-- Page Heading -->
-    <h3 class="m-0 font-weight-bold text-primary">Approved Overtime Request by @ViewData["Role"]</h3>
-    @*<p class="mb-4">
-            DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the <a target="_blank"
-                                                                       href="https://datatables.net">official DataTables documentation</a>.
-        </p>*@
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Approval Overtime Request by @ViewData["Role"]</h1>
+    </div>
+    @*<h3 class="m-0 font-weight-bold text-primary">Approved Overtime Request by @ViewData["Role"]</h3>*@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <!--<div class="card-header py-3">-->
-            @*<h6 class="m-0 font-weight-bold text-primary">Overtime Request History</h6>*@
-            <!--<button type="button" class="btn btn-success" onclick="exportToExcel();"><i class="fas fa-file-excel"></i> Excel</button>
+        @*<h6 class="m-0 font-weight-bold text-primary">Overtime Request History</h6>*@
+        <!--<button type="button" class="btn btn-success" onclick="exportToExcel();"><i class="fas fa-file-excel"></i> Excel</button>
             <button type="button" class="btn btn-danger" onclick="exportToPdf();"><i class="fas fa-file-pdf"></i> PDF</button>
         </div>-->
         <div class="card-body">

@@ -11,7 +11,7 @@
 
     <!-- Favicons -->
     <link href="~/template/assets/img/logo.png" rel="icon">
-    <title>History</title>
+    <title>Approval Request</title>
 
     <!-- Custom fonts for this template -->
     <link href="~/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -69,27 +69,35 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                   aria-controls="collapsePages">
+                <a class="nav-link" href="/HistoryRequest">
                     <i class="fas fa-fw fa-history"></i>
-                    <span>History</span>
+                    <span>Request History</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/HistoryRequest">Current Requests</a>
-                        <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
-                        <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
-                    </div>
-                </div>
             </li>
 
-            @if (ViewBag.sessionRole == "Finance Controller" || ViewBag.sessionRole == "Manager")
+            <!-- Nav Item - Pages Collapse Menu -->
+            @*<li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+               aria-controls="collapsePages">
+                <i class="fas fa-fw fa-history"></i>
+                <span>History</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="/HistoryRequest">Waiting Manager Approval</a>
+                    <a class="collapse-item" href="/ApprovedByManager">Waiting Finance Approval</a>
+                    <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
+                    <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
+                </div>
+            </div>
+        </li>*@
+
+            @if (ViewBag.sessionRole == "Finance Controller")
             {
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item active">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                        aria-controls="collapseTwo">
                         <i class="fas fa-fw fa-check-circle"></i>
                         <span>Approval</span>
@@ -99,13 +107,51 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Overtime Approval:</h6>
                             <a class="collapse-item active" href="/Approval">Request Validation</a>
-                            <a class="collapse-item" href="/ApprovalHistory">Approval History</a>
+                            <a class="collapse-item" href="/ApprovalHistoryFinance">Approval History</a>
                         </div>
                     </div>
                 </li>
-
+            }
+            @if (ViewBag.sessionRole == "Manager")
+            {
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                       aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-check-circle"></i>
+                        <span>Approval</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Overtime Approval:</h6>
+                            <a class="collapse-item active" href="/Approval">Request Validation</a>
+                            <a class="collapse-item" href="/ApprovalHistoryManager">Approval History</a>
+                        </div>
+                    </div>
+                </li>
             }
 
+            @*@if (ViewBag.sessionRole == "Finance Controller" || ViewBag.sessionRole == "Manager")*@
+            <!--{-->
+            <!-- Nav Item - Pages Collapse Menu -->
+            <!--<li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+               aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-check-circle"></i>
+                <span>Approval</span>
+            </a>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Overtime Approval:</h6>
+                    <a class="collapse-item active" href="/Approval">Request Validation</a>
+                    <a class="collapse-item" href="/ApprovalHistory">Approval History</a>
+                </div>
+            </div>
+        </li>
+
+    }-->
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

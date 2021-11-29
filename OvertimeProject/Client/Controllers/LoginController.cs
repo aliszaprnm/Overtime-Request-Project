@@ -50,9 +50,9 @@ namespace Client.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult ForgotPassword()
+        /*public IActionResult ForgotPassword()
         {
             return View();
-        }
+        }*/
     }
 }
