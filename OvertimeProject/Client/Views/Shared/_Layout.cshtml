@@ -12,7 +12,7 @@
 
     <!-- Favicons -->
     <link href="~/template/assets/img/logo.png" rel="icon">
-    <title>History</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template -->
     <link href="~/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -70,42 +70,33 @@
                 </a>
             </li>
 
-            @*<li class="nav-item">
-                    <a class="nav-link" href="/Home/HistoryRequest">
-                        <i class="fas fa-fw fa-history"></i>
-                        <span>Request History</span>
-                    </a>
-                </li>*@
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
-                   aria-controls="collapseUtilities">
+                <a class="nav-link" href="/HistoryRequest">
                     <i class="fas fa-fw fa-history"></i>
-                    <span>History</span>
+                    <span>Request History</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        @*<h6 class="collapse-header">Overtime Requests:</h6>*@
-                        <a class="collapse-item" href="/HistoryRequest">Current Requests</a>
-                        <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
-                        <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
-                    </div>
-                </div>
             </li>
 
+            <!-- Nav Item - Pages Collapse Menu -->
+            <!--<li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
+           aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-history"></i>
+            <span>History</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">-->
+            @*<h6 class="collapse-header">Overtime Requests:</h6>*@
+            <!--<a class="collapse-item" href="/HistoryRequest">Waiting Manager Approval</a>
+                <a class="collapse-item" href="/ApprovedByManager">Waiting Finance Approval</a>
+                <a class="collapse-item" href="/ApprovedRequest">Approved Requests</a>
+                <a class="collapse-item" href="/RejectedRequest">Rejected Requests</a>
+            </div>
+        </div>
+    </li>-->
 
-
-            @if (ViewBag.sessionRole == "Finance Controller" || ViewBag.sessionRole == "Manager")
+            @if (ViewBag.sessionRole == "Finance Controller")
             {
-                <!-- Divider -->
-                @*<hr class="sidebar-divider">*@
-
-                <!-- Heading -->
-                @*<div class="sidebar-heading">
-                        Approval
-                    </div>*@
-
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -118,11 +109,30 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Overtime Approval:</h6>
                             <a class="collapse-item" href="/Approval">Request Validation</a>
-                            <a class="collapse-item" href="/ApprovalHistory">Approval History</a>
+                            <a class="collapse-item" href="/ApprovalHistoryFinance">Approval History</a>
                         </div>
                     </div>
                 </li>
+            }
 
+            @if (ViewBag.sessionRole == "Manager")
+            {
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                       aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-check-circle"></i>
+                        <span>Approval</span>
+                    </a>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Overtime Approval:</h6>
+                            <a class="collapse-item" href="/Approval">Request Validation</a>
+                            <a class="collapse-item" href="/ApprovalHistoryManager">Approval History</a>
+                        </div>
+                    </div>
+                </li>
             }
 
             <!-- Divider -->

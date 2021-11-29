@@ -9,7 +9,7 @@
                 targets: '_all'
             }
         ],
-        buttons: [
+        /*buttons: [
             {
                 extend: 'excelHtml5',
                 name: 'excel',
@@ -20,7 +20,7 @@
                 fileName: 'Data',
                 autoFilter: true,
                 exportOptions: {
-                    columns: [1, 2, 3, 4]
+                    columns: [1, 2, 3]
                 }
             },
             {
@@ -36,7 +36,7 @@
                     columns: [1, 2, 3, 4]
                 }
             }
-        ],
+        ],*/
         ajax: {
             "url": "https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=0&nik=" + stringnip,
             "datatype": "json",
@@ -81,10 +81,121 @@
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
                         case 1:
-                            status = '<span class="badge badge-primary badge-pill">' + 'Approved by Manager' + '</span>';
+                            status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
                             status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
+                            break;
+                        case 3:
+                            status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
+                    }
+                    return status;
+                    /*if (row['status'] == 0) {
+                        return 'Pending'
+                    } else if (row['status'] == 1) {
+                        return 'Approved by Manager'
+                    } else if (row['status'] == 2) {
+                        return 'Approved by Finance Controller'
+                    } else if (row['status'] == 3) {
+                        return 'Rejected'
+                    }*/
+                }
+            },
+            {
+                "data": "",
+                "orderable": false,
+                "render": function (data, type, row, meta) {
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                }
+            }
+        ]
+    });
+
+    $("#approvedByManagerTable").DataTable({
+        /*filter: true,*/
+        /*dom:Bfrtip,*/
+        columnDefs: [
+            {
+                className: 'text-center',
+                targets: '_all'
+            }
+        ],
+        /*buttons: [
+            {
+                extend: 'excelHtml5',
+                name: 'excel',
+                title: 'Overtime Request History',
+                sheetName: 'Overtime Request History',
+                text: '',
+                className: 'buttonHide fa fa-download btn-default',
+                fileName: 'Data',
+                autoFilter: true,
+                exportOptions: {
+                    columns: [1, 2, 3, 4]
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                name: 'pdf',
+                title: 'Overtime Request History',
+                sheetName: 'Overtime Request History',
+                text: '',
+                className: 'buttonHide fa fa-download btn-default',
+                fileName: 'Data',
+                autoFilter: true,
+                exportOptions: {
+                    columns: [1, 2, 3, 4]
+                }
+            }
+        ],*/
+        ajax: {
+            "url": "https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=1&nik=" + stringnip,
+            "datatype": "json",
+            "dataSrc": ""
+        },
+        columns: [
+            {
+                "data": null,
+                "render": function (data, type, full, meta) {
+                    return meta.row + 1;
+                }
+            },
+            {
+                "data": "",
+                "render": function (data, type, row, meta) {
+                    return row['requestDate'].substr(0, 10)
+                }
+            },
+            {
+                "data": "task"
+            },
+            {
+                "data": "",
+                "render": function (data, type, row) {
+                    var startTH = row['startTime'].substr(11, 2);
+                    var startTM = row['startTime'].substr(14, 2);
+                    var endTH = row['endTime'].substr(11, 2);
+                    var endTM = row['endTime'].substr(14, 2);
+                    var totalSecStart = (startTH * 3600) + (startTM * 60);
+                    var totalSecEnd = (endTH * 3600) + (endTM * 60);
+                    var diffHours = (totalSecEnd - totalSecStart) / 3600;
+                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
+                    return (diffHours) + ' Hours';
+                }
+            },
+            {
+                "data": "status",
+                "render": function (data, type, row, meta) {
+                    status = '';
+                    switch (data) {
+                        case 0:
+                            status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
+                            break;
+                        case 1:
+                            status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
+                            break;
+                        case 2:
+                            status = '<span class="badge badge-success badge-pill">' + 'Approved' + '</span>';
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
@@ -120,7 +231,7 @@
                 targets: '_all'
             }
         ],
-        buttons: [
+        /*buttons: [
             {
                 extend: 'excelHtml5',
                 name: 'excel',
@@ -147,7 +258,7 @@
                     columns: [1, 2, 3, 4]
                 }
             }
-        ],
+        ],*/
         ajax: {
             "url": "https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=2&nik=" + stringnip,
             "datatype": "json",
@@ -192,10 +303,10 @@
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
                         case 1:
-                            status = '<span class="badge badge-primary badge-pill">' + 'Approved by Manager' + '</span>';
+                            status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
-                            status = '<span class="badge badge-success badge-pill">' + 'Approved' + '</span>';
+                            status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
@@ -231,7 +342,7 @@
                 targets: '_all'
             }
         ],
-        buttons: [
+        /*buttons: [
             {
                 extend: 'excelHtml5',
                 name: 'excel',
@@ -258,7 +369,7 @@
                     columns: [1, 2, 3, 4]
                 }
             }
-        ],
+        ],*/
         ajax: {
             "url": "https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=3&nik=" + stringnip,
             "datatype": "json",
@@ -303,7 +414,7 @@
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
                         case 1:
-                            status = '<span class="badge badge-primary badge-pill">' + 'Approved by Manager' + '</span>';
+                            status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
                             status = '<span class="badge badge-success badge-pill">' + 'Approved' + '</span>';
@@ -334,13 +445,23 @@
     });
 })
 
-function exportToExcel() {
+/*function exportToExcel() {
     var table = $('#historyTable').DataTable();
     table.buttons('excel:name').trigger();
 }
 
 function exportToPdf() {
     var table = $('#historyTable').DataTable();
+    table.buttons('pdf:name').trigger();
+}
+
+function exportToExcel() {
+    var table = $('#approvedByManagerTable').DataTable();
+    table.buttons('excel:name').trigger();
+}
+
+function exportToPdf() {
+    var table = $('#approvedByManagerTable').DataTable();
     table.buttons('pdf:name').trigger();
 }
 
@@ -362,7 +483,7 @@ function exportToExcel() {
 function exportToPdf() {
     var table = $('#rejectedTable').DataTable();
     table.buttons('pdf:name').trigger();
-}
+}*/
 
 function getdatabyID(requestId) {
     console.log(requestId)
