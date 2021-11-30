@@ -308,7 +308,7 @@ namespace OvertimeProject.Repository.Data
             if (approvalVM.Status == 1)
             {
                 userRequest.Status = StatusRequest.ApproveByManager;
-                sendEmail.SendApproveNotificationToEmployeebyManager(userRequest.Email, employees.FirstName, employees.LastName);
+                sendEmail.SendApproveNotificationToEmployeebyManager(userRequest.Email, employees.FirstName, employees.LastName, request.RequestDate);
             }
             else if (approvalVM.Status == 2)
             {
@@ -345,12 +345,12 @@ namespace OvertimeProject.Repository.Data
                 commision = Math.Round(commision, 2);
                 userRequest.Status = StatusRequest.ApproveByFinance;
                 request.Commission = (int)commision;
-                sendEmail.SendApproveNotificationToEmployeebyFinance(userRequest.Email, fullName, request.Commission);
+                sendEmail.SendApproveNotificationToEmployeebyFinance(userRequest.Email, fullName, request.Commission, request.RequestDate);
             }
             else if (approvalVM.Status == 3)
             {
                 userRequest.Status = StatusRequest.Reject;
-                sendEmail.SendRejectNotificationToEmployee(userRequest.Email, fullName);
+                sendEmail.SendRejectNotificationToEmployee(userRequest.Email, fullName, request.RequestDate);
             }
             myContext.Update(userRequest);
             myContext.SaveChanges();
