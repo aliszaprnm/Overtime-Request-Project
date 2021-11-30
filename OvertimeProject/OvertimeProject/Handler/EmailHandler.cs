@@ -9,7 +9,7 @@ namespace OvertimeProject.Handler
 {
     public class EmailHandler
     {
-        public void SendNotification(string resetCode, string email)
+        public void SendNotification(string resetCode, string email, string name)
         {
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.Credentials = new NetworkCredential("smarttechnomcc58@gmail.com", "123456789Ok");
@@ -23,7 +23,7 @@ namespace OvertimeProject.Handler
             mailMessage.To.Add(new MailAddress(email));
             mailMessage.Subject = "Reset Password " + DateTime.Now.ToString("HH:mm:ss");
             mailMessage.IsBodyHtml = false;
-            mailMessage.Body = "Hi " + "\nThis is new password for your account. \n\n" + resetCode + "\n\nThank You";
+            mailMessage.Body = "Dear, " + name + ".\n\n" + "We have received your request to reset the password for the account with the following information: \n\n" + "Name: " + name + "\nEmail: " + email + "\n\nThis is new password for your account. \n\n" + resetCode + "\n\nThank You.";
             smtp.Send(mailMessage);
         }
         public void SendPassword(string email)
@@ -34,7 +34,7 @@ namespace OvertimeProject.Handler
             MailMessage mm = new MailMessage("smarttechnomcc58@gmail.com", email)
             {
                 Subject = "Email Register Confirmation - " + time24 + ",",
-                Body = "Hi," + "<br/> Your password is <b>B0o7c@mp</b>" + "<br/> Please login with your password.",
+                Body = "Dear " + "<br/> Your password is <b>B0o7c@mp</b>" + "<br/> Please login with your password.",
 
                 IsBodyHtml = true
             };
@@ -57,7 +57,7 @@ namespace OvertimeProject.Handler
             MailMessage mm = new MailMessage("smarttechnomcc58@gmail.com", email)
             {
                 Subject = "Overtime Request Notification - " + time24 + ",",
-                Body = "Hi," + "<br/> Your request has been sent to your manager." + "<br/> Please wait for a further information.",
+                Body = "Dear, " +  "<br/> Your request has been sent to your manager." + "<br/> Please wait for a further information.",
 
                 IsBodyHtml = true
             };
@@ -73,7 +73,7 @@ namespace OvertimeProject.Handler
             smtp.Send(mm);
         }
 
-        public void SendApproveNotificationToEmployeebyManager(string email)
+        public void SendApproveNotificationToEmployeebyManager(string email, string firstName, string lastName)
         {
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
@@ -81,7 +81,7 @@ namespace OvertimeProject.Handler
             MailMessage mm = new MailMessage("smarttechnomcc58@gmail.com", email)
             {
                 Subject = "Manager Approval Result for Your Overtime Request - " + time24 + ",",
-                Body = "Hi," + "<br/> Your request has been approved by manager. <br/> Please wait for approval from Finance Dept",
+                Body = "Dear, " + firstName + " "+ lastName + ".<br/>" + "<br/>Your overtime request has been approved and forwarded to the Finance Department.<br/> Please wait for further information. <br/>" + "<br/>Thank You.<br/><br/>" +"<br/>Best Regards, <br/>Manager",
 
                 IsBodyHtml = true
             };
@@ -96,7 +96,7 @@ namespace OvertimeProject.Handler
             smtp.Port = 587;
             smtp.Send(mm);
         }
-        public void SendApproveNotificationToEmployeebyFinance(string email)
+        public void SendApproveNotificationToEmployeebyFinance(string email, string fullName, int commission)
         {
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
@@ -104,7 +104,7 @@ namespace OvertimeProject.Handler
             MailMessage mm = new MailMessage("smarttechnomcc58@gmail.com", email)
             {
                 Subject = "Finance Approval Result for Your Overtime Request" + time24 + ",",
-                Body = "Hi," + "<br/> Your request has been approved. <br/>",
+                Body = "Dear, " + fullName + ".<br/>" + "<br/>Your overtime request has been fully approved and you get an overtime commission of Rp" + commission + "<br/>Thank You.<br/><br/>" + "<br/>Best Regards, <br/>Finance Controller",
 
                 IsBodyHtml = true
             };
@@ -120,7 +120,7 @@ namespace OvertimeProject.Handler
             smtp.Send(mm);
         }
 
-        public void SendRejectNotificationToEmployee(string email)
+        public void SendRejectNotificationToEmployee(string email, string fullName)
         {
             var time24 = DateTime.Now.ToString("HH:mm:ss");
 
@@ -128,7 +128,7 @@ namespace OvertimeProject.Handler
             MailMessage mm = new MailMessage("smarttechnomcc58@gmail.com", email)
             {
                 Subject = "Approval Result for Your Overtime Request - " + time24 + ",",
-                Body = "Hi," + "<br/> Your request has been rejected.",
+                Body = "Dear, " + fullName + ".<br/>" + "<br/>Sorry, your overtime application was rejected because it is not in accordance with company policy." + "<br/>Thank You.",
 
                 IsBodyHtml = true
             };
