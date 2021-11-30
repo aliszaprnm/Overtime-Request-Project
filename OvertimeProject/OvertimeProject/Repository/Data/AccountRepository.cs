@@ -118,6 +118,9 @@ namespace OvertimeProject.Repository.Data
         {
             string resetCode = Guid.NewGuid().ToString();
             var getUser = myContext.Employees.Where(e => e.Email == email).FirstOrDefault();
+            var getName = myContext.Employees.Where(n => n.FirstName == getUser.FirstName).FirstOrDefault();
+           /* string firstName = getUser.FirstName;*/
+            string name = getUser.FirstName + " " + getUser.LastName;
             var getAcount = myContext.Accounts.Where(a => a.AccountId == getUser.NIK).FirstOrDefault();
             if (getUser == null)
             {
@@ -128,7 +131,7 @@ namespace OvertimeProject.Repository.Data
                 var password = Hashing.HashPassword(resetCode);
                 getAcount.Password = password;
                 var result = myContext.SaveChanges();
-                sendEmail.SendNotification(resetCode, email);
+                sendEmail.SendNotification(resetCode, email, name);
                 return result;
             }
         }

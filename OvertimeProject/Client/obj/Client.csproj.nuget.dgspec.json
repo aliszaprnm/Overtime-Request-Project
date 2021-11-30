@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj": {}
+    "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj": {
+    "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\nkhal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\Maulana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nkhal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Maulana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj": {
-                "projectPath": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj"
+              "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj": {
+                "projectPath": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj"
               }
             }
           }
@@ -97,21 +97,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj": {
+    "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj",
+        "projectUniqueName": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj",
         "projectName": "OvertimeProject",
-        "projectPath": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj",
-        "packagesPath": "C:\\Users\\nkhal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nkhal\\Desktop\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\obj\\",
+        "projectPath": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\OvertimeProject.csproj",
+        "packagesPath": "C:\\Users\\Maulana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maulana\\Documents\\GitHub\\Overtime-Request-Project\\OvertimeProject\\OvertimeProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nkhal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Maulana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -186,7 +186,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
