@@ -489,6 +489,7 @@ function getdatabyID(requestId) {
     console.log(requestId)
     $.ajax({
         url: "https://localhost:44314/API/Requests/GetRequestById/" + requestId,
+        /*url: "/Requests/GetReq/" + requestId,*/
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
