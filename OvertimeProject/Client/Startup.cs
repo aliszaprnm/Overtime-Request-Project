@@ -50,6 +50,7 @@ namespace Client
             });
             services.AddScoped<LoginRepository>();
             services.AddScoped<AccountRepository>();
+            services.AddScoped<RequestRepository>();
             services.AddScoped<Address>();
         }
 
