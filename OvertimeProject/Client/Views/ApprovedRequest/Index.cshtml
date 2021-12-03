@@ -41,30 +41,37 @@
                 <table class="table table-hover table-bordered" id="approvedTable" width="100%" cellspacing="0">
                     <thead style="background-color:#4E73DF; color:white">
                         <!--<tr>
-            <th rowspan="2" style="text-align:center; vertical-align:middle">No</th>-->
+    <th rowspan="2" style="text-align:center; vertical-align:middle">No</th>-->
                         @*<th>Request Date</th>*@
                         <!--<th colspan="2" style="text-align:center">
-                    Date
-                </th>
-                <th colspan="2" style="text-align:center">Time</th>
-                <th rowspan="2" style="text-align:center; vertical-align:middle">Total Hours</th>
-                <th rowspan="2" style="text-align:center; vertical-align:middle">Task</th>
-                <th rowspan="2" style="text-align:center; vertical-align:middle">Approval Status</th>
-                <th rowspan="2" style="text-align:center; vertical-align:middle">Action</th>
-            </tr>
-            <tr>
-                <th style="text-align:center">Start</th>
-                <th style="text-align:center">End</th>
-                <th style="text-align:center">Start</th>
-                <th style="text-align:center">End</th>
-            </tr>-->
+            Date
+        </th>
+        <th colspan="2" style="text-align:center">Time</th>
+        <th rowspan="2" style="text-align:center; vertical-align:middle">Total Hours</th>
+        <th rowspan="2" style="text-align:center; vertical-align:middle">Task</th>
+        <th rowspan="2" style="text-align:center; vertical-align:middle">Approval Status</th>
+        <th rowspan="2" style="text-align:center; vertical-align:middle">Action</th>
+    </tr>
+    <tr>
+        <th style="text-align:center">Start</th>
+        <th style="text-align:center">End</th>
+        <th style="text-align:center">Start</th>
+        <th style="text-align:center">End</th>
+    </tr>-->
+                        @*<tr>
+            <th style="text-align:center">No</th>
+            <th style="text-align:center">Request Date</th>
+            <th style="text-align:center">Task</th>
+            <th style="text-align:center">Total Hours</th>
+            <th style="text-align:center">Approval Status</th>
+            <th style="text-align:center">Action</th>
+        </tr>*@
                         <tr>
-                            <th style="text-align:center">No</th>
-                            <th style="text-align:center">Request Date</th>
-                            <th style="text-align:center">Task</th>
-                            <th style="text-align:center">Total Hours</th>
-                            <th style="text-align:center">Approval Status</th>
-                            <th style="text-align:center">Action</th>
+                            <th>No</th>
+                            <th>Request Date</th>
+                            <th>Overtime Name</th>
+                            <th>Approval Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="tableHistory">
@@ -158,12 +165,12 @@
                 <input type="text" readonly class="form-control" id="manager" value="@ViewBag.manager" autocomplete="off" required>
             </div>*@
                 </form>
-                @*<button type="button" style="float:right" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>
-                <button type="button" style="float:right" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>*@
-                <div class="modal-footer">
+                <button type="button" style="float:right" class="btn btn-secondary ml-2" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+                <button type="button" style="float:right" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>
+                @*<div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
