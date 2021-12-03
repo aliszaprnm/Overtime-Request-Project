@@ -218,7 +218,7 @@ namespace OvertimeProject.Repository.Data
                 }).ToList();
             return all;
         }
-        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndNIK(int status, string NIK)
+        /*public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndNIK(int status, string NIK)
         {
             var request = StatusRequest.Pending;
             if (status == 1)
@@ -252,6 +252,35 @@ namespace OvertimeProject.Repository.Data
                     Task = f.Request.Task,
                     Commission = f.Request.Commission,
                     Status = f.Status
+                }).ToList();
+            return all;
+        }*/
+
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndNIK(int status, string NIK)
+        {
+            var request = StatusRequest.Pending;
+            if (status == 1)
+            {
+                request = StatusRequest.ApproveByManager;
+            }
+            else if (status == 2)
+            {
+                request = StatusRequest.ApproveByFinance;
+            }
+            else if (status == 3)
+            {
+                request = StatusRequest.Reject;
+            }
+            var all = (
+                from e in myContext.Employees
+                join f in myContext.UserRequests on e.NIK equals f.NIK
+                join o in myContext.Requests on f.RequestId equals o.RequestId
+                where f.Status == request && e.NIK == NIK
+                group f by new { o.RequestDate, o.OvertimeName} into g
+                select new OvertimeResponseVM
+                {
+                    OvertimeName = g.Key.OvertimeName,
+                    RequestDate = g.Key.RequestDate
                 }).ToList();
             return all;
         }

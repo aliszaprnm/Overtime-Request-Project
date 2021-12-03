@@ -170,9 +170,12 @@
                 }
             },
             {
-                "data": "task"
+                "data": "overtimeName"
             },
-            {
+            /*{
+                "data": "task"
+            },*/
+            /*{
                 "data": "",
                 "render": function (data, type, row) {
                     var startTH = row['startTime'].substr(11, 2);
@@ -182,10 +185,10 @@
                     var totalSecStart = (startTH * 3600) + (startTM * 60);
                     var totalSecEnd = (endTH * 3600) + (endTM * 60);
                     var diffHours = (totalSecEnd - totalSecStart) / 3600;
-                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
-                    return (diffHours) + ' Hours';
-                }
-            },
+                    *//*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*//*
+            return (diffHours) + ' Hours';
+        }
+    },*/
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
@@ -198,7 +201,7 @@
                             status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
-                            status = '<span class="badge badge-success badge-pill">' + 'Approved' + '</span>';
+                            status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
@@ -281,9 +284,12 @@
                 }
             },
             {
-                "data": "task"
+                "data": "overtimeName"
             },
-            {
+            /*{
+                "data": "task"
+            },*/
+            /*{
                 "data": "",
                 "render": function (data, type, row) {
                     var startTH = row['startTime'].substr(11, 2);
@@ -293,10 +299,10 @@
                     var totalSecStart = (startTH * 3600) + (startTM * 60);
                     var totalSecEnd = (endTH * 3600) + (endTM * 60);
                     var diffHours = (totalSecEnd - totalSecStart) / 3600;
-                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
-                    return (diffHours) + ' Hours';
-                }
-            },
+                    *//*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*//*
+            return (diffHours) + ' Hours';
+        }
+    },*/
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
@@ -392,9 +398,12 @@
                 }
             },
             {
-                "data": "task"
+                "data": "overtimeName"
             },
-            {
+            /*{
+                "data": "task"
+            },*/
+            /*{
                 "data": "",
                 "render": function (data, type, row) {
                     var startTH = row['startTime'].substr(11, 2);
@@ -404,10 +413,10 @@
                     var totalSecStart = (startTH * 3600) + (startTM * 60);
                     var totalSecEnd = (endTH * 3600) + (endTM * 60);
                     var diffHours = (totalSecEnd - totalSecStart) / 3600;
-                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
-                    return (diffHours) + ' Hours';
-                }
-            },
+                    *//*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*//*
+            return (diffHours) + ' Hours';
+        }
+    },*/
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
@@ -420,7 +429,7 @@
                             status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
-                            status = '<span class="badge badge-success badge-pill">' + 'Approved' + '</span>';
+                            status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
@@ -685,7 +694,9 @@ function getDataPending(requestDate) {
                             <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
                         </div>
                     </div>
-                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+                    <div>
+                        <hr style="border:0.5px solid;color:#333;background-color:#333;" />
+                    </div>`;
             });
             $('#formDetail').append(rows);
         }
@@ -771,7 +782,9 @@ function getDataApprovedByManager(requestDate) {
                             <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
                         </div>
                     </div>
-                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+                    <div>
+                        <hr style="border:0.5px solid;color:#333;background-color:#333;" />
+                    </div>`;
             });
             $('#formDetail').append(rows);
         }
@@ -857,7 +870,9 @@ function getDataApproved(requestDate) {
                             <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${new Intl.NumberFormat(['ban', 'id']).format(item.commission)}" readonly>
                         </div>
                     </div>
-                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+                    <div>
+                        <hr style="border:0.5px solid;color:#333;background-color:#333;" />
+                    </div>`;
             });
             $('#formDetail').append(rows);
         }
@@ -894,11 +909,15 @@ function getDataRejected(requestDate) {
                     stat = "Rejected"
                 }
                 rows += `<div class="form-row" hidden>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataNIK">NIK</label>
                             <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
+                            <label for="dataOTName">Overtime Name</label>
+                            <input type="text" class="form-control" id="dataOTName" name="dataOTName" value="${item.overtimeName}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
                             <label for="dataName">Name</label>
                             <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
                         </div>
@@ -944,7 +963,7 @@ function getDataRejected(requestDate) {
                         </div>
                     </div>
                     <div>
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+                        <hr style="border:0.5px solid;color:#333;background-color:#333;" />
                     </div>`;
             });
             $('#formDetail').append(rows);
@@ -970,7 +989,7 @@ function printElement(elem) {
         document.body.appendChild($printSection);
     }
 
-    $printSection.innerHTML = `<h1 style="text-align: center"><b>Overtime Request Report</b></h1><hr/><p>NIK&emsp;&nbsp;: ${stringnip}</p><p>Name&nbsp;: ${firstName} ${lastName}</p>`;
+    $printSection.innerHTML = `<h1 style="text-align: center"><b>Overtime Request Report</b></h1><hr style="border:0.5px solid;color:#333;background-color:#333;" /><p>NIK&emsp;&nbsp;: ${stringnip}</p><p>Name&nbsp;: ${firstName} ${lastName}</p><hr style="border:0.5px solid;color:#333;background-color:#333;" />`;
     $printSection.appendChild(domClone);
     window.print();
 }
