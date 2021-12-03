@@ -70,6 +70,9 @@
                 }
             },
             {
+                "data": "overtimeName"
+            },
+            /*{
                 "data": "task"
             },
             {
@@ -82,10 +85,10 @@
                     var totalSecStart = (startTH * 3600) + (startTM * 60);
                     var totalSecEnd = (endTH * 3600) + (endTM * 60);
                     var diffHours = (totalSecEnd - totalSecStart) / 3600;
-                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
+                    *//*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*//*
                     return (diffHours) + ' Hours';
                 }
-            },
+            },*/
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
@@ -110,14 +113,14 @@
                 "data": "",
                 "orderable": false,
                 "render": function (data, type, row, meta) {
-                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestDate}, ${row.nik}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
                 }
             }
         ]
     });
 })
 
-function getdatabyID(requestId) {
+/*function getdatabyID(requestId) {
     console.log(requestId)
     $.ajax({
         url: "https://localhost:44314/API/Requests/GetRequestById/" + requestId,
@@ -130,11 +133,11 @@ function getdatabyID(requestId) {
             var reqDate = result[0].requestDate.substr(0, 10);
             var sHours = result[0].startTime.substr(11, 2);
             var sMinutes = result[0].startTime.substr(14, 2);
-            /*var sTime = sHours + ":" + sMinutes + sMinutes;*/
+            *//*var sTime = sHours + ":" + sMinutes + sMinutes;*//*
             var sTime = result[0].startTime.substr(11, 5);
             var eHours = result[0].endTime.substr(11, 2);
             var eMinutes = result[0].endTime.substr(14, 2);
-            /*var eTime = eHours + ":" + eMinutes + eMinutes;*/
+            *//*var eTime = eHours + ":" + eMinutes + eMinutes;*//*
             var eTime = result[0].endTime.substr(11, 5);
             var tSecStart = (sHours * 3600) + (sMinutes * 60);
             var tSecEnd = (eHours * 3600) + (eMinutes * 60);
@@ -147,7 +150,7 @@ function getdatabyID(requestId) {
             $('#dataEndTime').val(eTime);
             $('#dataTask').val(result[0].task);
             $('#dataTotal').val(tHours);
-            /*$('#dataStatus').val(result[0].approvalStatus);*/
+            *//*$('#dataStatus').val(result[0].approvalStatus);*//*
             if (result[0].status === 0) {
                 $('#dataStatus').val("Pending");
             } else if (result[0].status === 1) {
@@ -172,6 +175,98 @@ function getdatabyID(requestId) {
         }
     });
     return false;
+}*/
+
+function getdatabyID(x) {
+    var reqDate = x.substr(0, 10);
+    var userId = x.substr(21, 5);
+    console.log(x)
+    console.log(reqDate)
+    console.log(userId)
+    $.ajax({
+        url: `https://localhost:44314/API/Requests/GetRequestByStatusAndNIKAndDate?status=2&nik=${userId}&requestdate=${reqDate}`,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var rows = '';
+            var res
+            $.each(result, function (i, item) {
+                var sHour = item.startTime.substr(11, 2);
+                var eHour = item.endTime.substr(11, 2);
+                var sMinute = item.startTime.substr(14, 2);
+                var eMinute = item.endTime.substr(14, 2);
+                var tSecStart = (sHour * 3600) + (sMinute * 60);
+                var tSecEnd = (eHour * 3600) + (eMinute * 60);
+                var diffTime = (tSecEnd - tSecStart) / 3600;
+                var stat = item.status;
+                if (stat === 0) {
+                    stat = "Pending"
+                } else if (stat === 1) {
+                    stat = "Approved by Manager"
+                } else if (stat === 2) {
+                    stat = "Approved"
+                } else if (stat === 3) {
+                    stat = "Rejected"
+                }
+                rows += `<div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" value="${item.requestId}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" value="${item.requestDate.substr(0, 10)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" value="${stat}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <hr style="border:0.5px solid;color:#333;background-color:#333;" />
+                    </div>`;
+            });
+            $('#formDetail').append(rows);
+        }
+    });
 }
 
 function exportToExcel() {
