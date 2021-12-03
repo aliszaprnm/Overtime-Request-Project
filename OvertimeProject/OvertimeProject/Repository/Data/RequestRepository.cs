@@ -121,6 +121,43 @@ namespace OvertimeProject.Repository.Data
                 }).ToList();
             return all;
         }
+        public IEnumerable<OvertimeResponseVM> GetRequestByStatusAndDate(int status, DateTime reqDate)
+        {
+            var request = StatusRequest.Pending;
+            if (status == 1)
+            {
+                request = StatusRequest.ApproveByManager;
+            }
+            else if (status == 2)
+            {
+                request = StatusRequest.ApproveByFinance;
+            }
+            else if (status == 3)
+            {
+                request = StatusRequest.Reject;
+            }
+            var all = (
+                from e in myContext.Employees
+                join f in myContext.UserRequests on e.NIK equals f.NIK
+                join o in myContext.Requests on f.RequestId equals o.RequestId
+                where f.Status == request && o.RequestDate == reqDate
+                select new OvertimeResponseVM
+                {
+                    AccountId = e.NIK,
+                    RequestId = f.Request.RequestId,
+                    OvertimeName = f.Request.OvertimeName,
+                    RequestDate = f.Request.RequestDate,
+                    NIK = f.NIK,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    StartTime = f.Request.StartTime,
+                    EndTime = f.Request.EndTime,
+                    Task = f.Request.Task,
+                    Commission = f.Request.Commission,
+                    Status = f.Status
+                }).ToList();
+            return all;
+        }
         public IEnumerable<OvertimeResponseVM> GetRequestByNIK(string NIK)
         {
             var all = (
@@ -218,6 +255,7 @@ namespace OvertimeProject.Repository.Data
                 }).ToList();
             return all;
         }
+
         //buat Finance
         public IEnumerable<OvertimeResponseVM> GetAllRequestByStatus(int status)
         {
@@ -308,7 +346,7 @@ namespace OvertimeProject.Repository.Data
             if (approvalVM.Status == 1)
             {
                 userRequest.Status = StatusRequest.ApproveByManager;
-                sendEmail.SendApproveNotificationToEmployeebyManager(userRequest.Email, employees.FirstName, employees.LastName, request.RequestDate);
+                sendEmail.SendApproveNotificationToEmployeebyManager(userRequest.Email, employees.FirstName, employees.LastName, request.RequestDate, userRequest.RequestId, request.OvertimeName, request.StartTime, request.EndTime, request.Task);
             }
             else if (approvalVM.Status == 2)
             {
@@ -345,12 +383,12 @@ namespace OvertimeProject.Repository.Data
                 commision = Math.Round(commision, 2);
                 userRequest.Status = StatusRequest.ApproveByFinance;
                 request.Commission = (int)commision;
-                sendEmail.SendApproveNotificationToEmployeebyFinance(userRequest.Email, fullName, request.Commission, request.RequestDate);
+                sendEmail.SendApproveNotificationToEmployeebyFinance(userRequest.Email, fullName, request.Commission, request.RequestDate, userRequest.RequestId, request.OvertimeName, request.StartTime, request.EndTime, request.Task);
             }
             else if (approvalVM.Status == 3)
             {
                 userRequest.Status = StatusRequest.Reject;
-                sendEmail.SendRejectNotificationToEmployee(userRequest.Email, fullName, request.RequestDate);
+                sendEmail.SendRejectNotificationToEmployee(userRequest.Email, fullName, request.RequestDate, userRequest.RequestId, request.OvertimeName, request.StartTime, request.EndTime, request.Task);
             }
             myContext.Update(userRequest);
             myContext.SaveChanges();

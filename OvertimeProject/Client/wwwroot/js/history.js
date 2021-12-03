@@ -56,9 +56,12 @@
                 }
             },
             {
-                "data": "task"
+                "data": "overtimeName"
             },
-            {
+            /*{
+                "data": "task"
+            },*/
+            /*{
                 "data": "",
                 "render": function (data, type, row) {
                     var startTH = row['startTime'].substr(11, 2);
@@ -68,10 +71,10 @@
                     var totalSecStart = (startTH * 3600) + (startTM * 60);
                     var totalSecEnd = (endTH * 3600) + (endTM * 60);
                     var diffHours = (totalSecEnd - totalSecStart) / 3600;
-                    /*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*/
+                    *//*var timeDiff = (row['endTime']['totalSeconds'] - row['startTime']['totalSeconds'])/3600;*//*
                     return (diffHours) + ' Hours';
                 }
-            },
+            },*/
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
@@ -105,7 +108,7 @@
                 "data": "",
                 "orderable": false,
                 "render": function (data, type, row, meta) {
-                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getDataPending('${row.requestDate}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
                 }
             }
         ]
@@ -216,7 +219,7 @@
                 "data": "",
                 "orderable": false,
                 "render": function (data, type, row, meta) {
-                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getDataApprovedByManager('${row.requestDate}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
                 }
             }
         ]
@@ -327,7 +330,7 @@
                 "data": "",
                 "orderable": false,
                 "render": function (data, type, row, meta) {
-                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getDataApproved('${row.requestDate}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
                 }
             }
         ]
@@ -438,7 +441,7 @@
                 "data": "",
                 "orderable": false,
                 "render": function (data, type, row, meta) {
-                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getdatabyID('${row.requestId}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
+                    return `<td scope="row"><a class="btn btn-info btn-sm text-light" data-url="" onclick="getDataRejected('${row.requestDate}')" data-toggle="modal" data-target="#detailModal" title="Detail"><i class="fa fa-info-circle"></i></a></td>`
                 }
             }
         ]
@@ -485,10 +488,13 @@ function exportToPdf() {
     table.buttons('pdf:name').trigger();
 }*/
 
-function getdatabyID(requestId) {
+
+//detail
+/*function getdatabyID(requestId) {
     console.log(requestId)
     $.ajax({
         url: "https://localhost:44314/API/Requests/GetRequestById/" + requestId,
+        *//*url: "/Requests/GetReq/" + requestId,*//*
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
@@ -498,11 +504,11 @@ function getdatabyID(requestId) {
             var reqDate = result[0].requestDate.substr(0, 10);
             var sHours = result[0].startTime.substr(11, 2);
             var sMinutes = result[0].startTime.substr(14, 2);
-            /*var sTime = sHours + ":" + sMinutes + sMinutes;*/
+            *//*var sTime = sHours + ":" + sMinutes + sMinutes;*//*
             var sTime = result[0].startTime.substr(11, 5);
             var eHours = result[0].endTime.substr(11, 2);
             var eMinutes = result[0].endTime.substr(14, 2);
-            /*var eTime = eHours + ":" + eMinutes + eMinutes;*/
+            *//*var eTime = eHours + ":" + eMinutes + eMinutes;*//*
             var eTime = result[0].endTime.substr(11, 5);
             var tSecStart = (sHours * 3600) + (sMinutes * 60);
             var tSecEnd = (eHours * 3600) + (eMinutes * 60);
@@ -515,7 +521,7 @@ function getdatabyID(requestId) {
             $('#dataEndTime').val(eTime);
             $('#dataTask').val(result[0].task);
             $('#dataTotal').val(tHours);
-            /*$('#dataStatus').val(result[0].approvalStatus);*/
+            *//*$('#dataStatus').val(result[0].approvalStatus);*//*
             if (result[0].status === 0) {
                 $('#dataStatus').val("Pending");
             } else if (result[0].status === 1) {
@@ -540,6 +546,410 @@ function getdatabyID(requestId) {
         }
     });
     return false;
+}*/
+
+/*function getdatabyID(requestDate) {
+    console.log(requestDate)
+    $.ajax({
+        url: "https://localhost:44314/API/Requests/GetRequestByDate/" + requestDate,
+        *//*url: "/Requests/GetReq/" + requestId,*//*
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var jmlData = result.length;
+            var reqDate = result[0].requestDate.substr(0, 10);
+            var sHours = result[0].startTime.substr(11, 2);
+            var sMinutes = result[0].startTime.substr(14, 2);
+            *//*var sTime = sHours + ":" + sMinutes + sMinutes;*//*
+            var sTime = result[0].startTime.substr(11, 5);
+            var eHours = result[0].endTime.substr(11, 2);
+            var eMinutes = result[0].endTime.substr(14, 2);
+            *//*var eTime = eHours + ":" + eMinutes + eMinutes;*//*
+            var eTime = result[0].endTime.substr(11, 5);
+            var tSecStart = (sHours * 3600) + (sMinutes * 60);
+            var tSecEnd = (eHours * 3600) + (eMinutes * 60);
+            var tHours = (tSecEnd - tSecStart) / 3600 + " Hours";
+            $('#dataNIK').val(result[0].nik);
+            $('#dataName').val(result[0].firstName + " " + result[0].lastName);
+            $('#dataRequestId').val(result[0].requestId);
+            $('#dataRequestDate').val(reqDate);
+            $('#dataStartTime').val(sTime);
+            $('#dataEndTime').val(eTime);
+            $('#dataTask').val(result[0].task);
+            $('#dataTotal').val(tHours);
+            *//*$('#dataStatus').val(result[0].approvalStatus);*//*
+            if (result[0].status === 0) {
+                $('#dataStatus').val("Pending");
+            } else if (result[0].status === 1) {
+                $('#dataStatus').val("Approved by Manager");
+            } else if (result[0].status === 2) {
+                $('#dataStatus').val("Approved");
+            } else if (result[0].status === 3) {
+                $('#dataStatus').val("Rejected");
+            }
+            $('#dataCommission').val("Rp" + (new Intl.NumberFormat(['ban', 'id']).format(result[0].commission)));
+            $('#detailModal').modal('show');
+        },
+        error: function (errormessage) {
+            alert(errormessage.responseText);
+            swal({
+                title: "FAILED",
+                text: "Data tidak ditemukan!",
+                icon: "error"
+            }).then(function () {
+                window.location.reload();
+            });
+        }
+    });
+    return false;
+}*/
+
+function getDataPending(requestDate) {
+    console.log(requestDate)
+    $.ajax({
+        url: "https://localhost:44314/API/Requests/GetRequestByStatusAndDate?status=0&requestdate=" + requestDate,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var rows = '';
+            var res
+            $.each(result, function (i, item) {
+                var sHour = item.startTime.substr(11, 2);
+                var eHour = item.endTime.substr(11, 2);
+                var sMinute = item.startTime.substr(14, 2);
+                var eMinute = item.endTime.substr(14, 2);
+                var tSecStart = (sHour * 3600) + (sMinute * 60);
+                var tSecEnd = (eHour * 3600) + (eMinute * 60);
+                var diffTime = (tSecEnd - tSecStart) / 3600;
+                var stat = item.status;
+                if (stat === 0) {
+                    stat = "Pending"
+                } else if (stat === 1) {
+                    stat = "Approved by Manager"
+                } else if (stat === 2) {
+                    stat = "Approved"
+                } else if (stat === 3) {
+                    stat = "Rejected"
+                }
+                rows += `<div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" value="${item.requestId}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" value="${item.requestDate.substr(0, 10)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" value="${stat}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
+                        </div>
+                    </div>
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+            });
+            $('#formDetail').append(rows);
+        }
+    });
+}
+
+function getDataApprovedByManager(requestDate) {
+    console.log(requestDate)
+    $.ajax({
+        url: "https://localhost:44314/API/Requests/GetRequestByStatusAndDate?status=1&requestdate=" + requestDate,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var rows = '';
+            var res
+            $.each(result, function (i, item) {
+                var sHour = item.startTime.substr(11, 2);
+                var eHour = item.endTime.substr(11, 2);
+                var sMinute = item.startTime.substr(14, 2);
+                var eMinute = item.endTime.substr(14, 2);
+                var tSecStart = (sHour * 3600) + (sMinute * 60);
+                var tSecEnd = (eHour * 3600) + (eMinute * 60);
+                var diffTime = (tSecEnd - tSecStart) / 3600;
+                var stat = item.status;
+                if (stat === 0) {
+                    stat = "Pending"
+                } else if (stat === 1) {
+                    stat = "Approved by Manager"
+                } else if (stat === 2) {
+                    stat = "Approved"
+                } else if (stat === 3) {
+                    stat = "Rejected"
+                }
+                rows += `<div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" value="${item.requestId}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" value="${item.requestDate.substr(0, 10)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" value="${stat}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
+                        </div>
+                    </div>
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+            });
+            $('#formDetail').append(rows);
+        }
+    });
+}
+
+function getDataApproved(requestDate) {
+    console.log(requestDate)
+    $.ajax({
+        url: "https://localhost:44314/API/Requests/GetRequestByStatusAndDate?status=2&requestdate=" + requestDate,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var rows = '';
+            var res
+            $.each(result, function (i, item) {
+                var sHour = item.startTime.substr(11, 2);
+                var eHour = item.endTime.substr(11, 2);
+                var sMinute = item.startTime.substr(14, 2);
+                var eMinute = item.endTime.substr(14, 2);
+                var tSecStart = (sHour * 3600) + (sMinute * 60);
+                var tSecEnd = (eHour * 3600) + (eMinute * 60);
+                var diffTime = (tSecEnd - tSecStart) / 3600;
+                var stat = item.status;
+                if (stat === 0) {
+                    stat = "Pending"
+                } else if (stat === 1) {
+                    stat = "Approved by Manager"
+                } else if (stat === 2) {
+                    stat = "Approved"
+                } else if (stat === 3) {
+                    stat = "Rejected"
+                }
+                rows += `<div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" value="${item.requestId}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" value="${item.requestDate.substr(0, 10)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" value="${stat}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${new Intl.NumberFormat(['ban', 'id']).format(item.commission)}" readonly>
+                        </div>
+                    </div>
+                    <hr style="height:1px;border:none;color:#333;background-color:#333;" />`;
+            });
+            $('#formDetail').append(rows);
+        }
+    });
+}
+
+function getDataRejected(requestDate) {
+    console.log(requestDate)
+    $.ajax({
+        url: "https://localhost:44314/API/Requests/GetRequestByStatusAndDate?status=3&requestdate=" + requestDate,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            var rows = '';
+            var res
+            $.each(result, function (i, item) {
+                var sHour = item.startTime.substr(11, 2);
+                var eHour = item.endTime.substr(11, 2);
+                var sMinute = item.startTime.substr(14, 2);
+                var eMinute = item.endTime.substr(14, 2);
+                var tSecStart = (sHour * 3600) + (sMinute * 60);
+                var tSecEnd = (eHour * 3600) + (eMinute * 60);
+                var diffTime = (tSecEnd - tSecStart) / 3600;
+                var stat = item.status;
+                if (stat === 0) {
+                    stat = "Pending"
+                } else if (stat === 1) {
+                    stat = "Approved by Manager"
+                } else if (stat === 2) {
+                    stat = "Approved"
+                } else if (stat === 3) {
+                    stat = "Rejected"
+                }
+                rows += `<div class="form-row" hidden>
+                        <div class="form-group col-md-6">
+                            <label for="dataNIK">NIK</label>
+                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" value="${item.nik}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataName">Name</label>
+                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" value="${item.firstName} ${item.lastName}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestId">Request ID</label>
+                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" value="${item.requestId}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataRequestDate">Request Date</label>
+                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" value="${item.requestDate.substr(0, 10)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStartTime">Start Time</label>
+                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataEndTime">End Time</label>
+                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataTotal">Total Hours</label>
+                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="dataStatus">Status</label>
+                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" value="${stat}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="dataCommission">Commission</label>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+                    </div>`;
+            });
+            $('#formDetail').append(rows);
+        }
+    });
 }
 
 document.getElementById("btnPrint").onclick = function () {
@@ -547,6 +957,9 @@ document.getElementById("btnPrint").onclick = function () {
 };
 
 function printElement(elem) {
+    var stringnip = $("#nips").val();
+    var firstName = $("#fName").val();
+    var lastName = $("#lName").val();
     var domClone = elem.cloneNode(true);
 
     var $printSection = document.getElementById("printSection");
@@ -557,7 +970,7 @@ function printElement(elem) {
         document.body.appendChild($printSection);
     }
 
-    $printSection.innerHTML = "<h1><b>Overtime Request Report</b></h1>";
+    $printSection.innerHTML = `<h1 style="text-align: center"><b>Overtime Request Report</b></h1><hr/><p>NIK&emsp;&nbsp;: ${stringnip}</p><p>Name&nbsp;: ${firstName} ${lastName}</p>`;
     $printSection.appendChild(domClone);
     window.print();
 }

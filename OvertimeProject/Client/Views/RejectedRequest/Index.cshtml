@@ -102,65 +102,66 @@
             </div>
             <div class="modal-body">
                 <form id="formDetail">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataNIK">NIK</label>
-                            <input type="text" class="form-control" id="dataNIK" name="dataNIK" placeholder="NIK" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dataName">Name</label>
-                            <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataRequestId">Request ID</label>
-                            <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dataRequestDate">Request Date</label>
-                            <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataStartTime">Start Time</label>
-                            <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dataEndTime">End Time</label>
-                            <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataTask">Task</label>
-                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dataTotal">Total Hours</label>
-                            <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataStatus">Status</label>
-                            <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dataCommission">Commission</label>
-                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" readonly>
-                        </div>
-                    </div>
-                    @*<div>
-                            <label for="dataApprover">Approver</label>
-                            <input type="text" readonly class="form-control" id="manager" value="@ViewBag.manager" autocomplete="off" required>
-                        </div>*@
-                </form>
-                <div class="modal-footer">
-                    @*<button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>*@
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+                    @*<div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dataNIK">NIK</label>
+                    <input type="text" class="form-control" id="dataNIK" name="dataNIK" placeholder="NIK" readonly>
                 </div>
+                <div class="form-group col-md-6">
+                    <label for="dataName">Name</label>
+                    <input type="text" class="form-control" id="dataName" name="dataName" placeholder="Name" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dataRequestId">Request ID</label>
+                    <input type="text" class="form-control" id="dataRequestId" name="dataRequestId" placeholder="Request ID" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dataRequestDate">Request Date</label>
+                    <input type="date" class="form-control" id="dataRequestDate" name="dataRequestDate" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dataStartTime">Start Time</label>
+                    <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dataEndTime">End Time</label>
+                    <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dataTask">Task</label>
+                    <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dataTotal">Total Hours</label>
+                    <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dataStatus">Status</label>
+                    <input type="text" class="form-control" id="dataStatus" name="dataStatus" placeholder="Approval Status" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dataCommission">Commission</label>
+                    <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" readonly>
+                </div>
+            </div>*@
+                    @*<div>
+                <label for="dataApprover">Approver</label>
+                <input type="text" readonly class="form-control" id="manager" value="@ViewBag.manager" autocomplete="off" required>
+            </div>*@
+                </form>
+                <button type="button" style="float:right" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+                <!--<div class="modal-footer">-->
+                @*<button type="button" class="btn btn-primary" data-dismiss="modal" id="btnPrint">Print</button>*@
+                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+    </div>-->
             </div>
         </div>
     </div>
