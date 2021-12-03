@@ -2,9 +2,9 @@
     /*var stringnip = $("#nips").val();*/
     var urlPost = "";
     if ($("#role").val() == "Manager") {
-        urlPost = "https://localhost:44314/API/Requests/GetAllRequestByStatusAndManagerId?status=0&managerId=" + $("#managerId").val();
+        urlPost = "https://localhost:44314/API/Requests/GetAllRequestByStatAndManagerId?status=0&managerId=" + $("#managerId").val();
     } else if ($("#role").val() == "Finance Controller") {
-        urlPost = "https://localhost:44314/API/Requests/GetAllRequestByStatus?status=1";
+        urlPost = "https://localhost:44314/API/Requests/GetAllRequestByStat?status=1";
     }
     console.log(urlPost);
     $("#requestTable").DataTable({

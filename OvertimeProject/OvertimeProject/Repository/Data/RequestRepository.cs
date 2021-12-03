@@ -219,6 +219,52 @@ namespace OvertimeProject.Repository.Data
                 }).ToList();
             return all;
         }
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatAndManagerId(int status, string managerId)
+        {
+            var request = StatusRequest.Pending;
+            if (status == 1)
+            {
+                request = StatusRequest.ApproveByManager;
+            }
+            else if (status == 2)
+            {
+                request = StatusRequest.ApproveByFinance;
+            }
+            else if (status == 3)
+            {
+                request = StatusRequest.Reject;
+            }
+            var all = (
+                from e in myContext.Employees
+                join f in myContext.UserRequests on e.NIK equals f.NIK
+                join o in myContext.Requests on f.RequestId equals o.RequestId
+                where f.Status == request && e.ManagerId == managerId
+                /*group f by new { o.RequestDate, e.NIK, e.FirstName, e.LastName, o.OvertimeName } into g
+                select new OvertimeResponseVM
+                {
+                    NIK = g.Key.NIK,
+                    FirstName = g.Key.FirstName,
+                    LastName = g.Key.LastName,
+                    OvertimeName = g.Key.OvertimeName,
+                    RequestDate = g.Key.RequestDate
+                }).ToList();*/
+                select new OvertimeResponseVM
+                {
+                    AccountId = e.NIK,
+                    RequestId = f.Request.RequestId,
+                    OvertimeName = f.Request.OvertimeName,
+                    RequestDate = f.Request.RequestDate,
+                    NIK = f.NIK,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    StartTime = f.Request.StartTime,
+                    EndTime = f.Request.EndTime,
+                    Task = f.Request.Task,
+                    Commission = f.Request.Commission,
+                    Status = f.Status
+                }).ToList();
+            return all;
+        }
         //buatManager
         public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndManagerId(int status, string managerId)
         {
@@ -334,6 +380,52 @@ namespace OvertimeProject.Repository.Data
         }
 
         //buat Finance
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStat(int status)
+        {
+            var request = StatusRequest.Pending;
+            if (status == 1)
+            {
+                request = StatusRequest.ApproveByManager;
+            }
+            else if (status == 2)
+            {
+                request = StatusRequest.ApproveByFinance;
+            }
+            else if (status == 3)
+            {
+                request = StatusRequest.Reject;
+            }
+            var all = (
+                from e in myContext.Employees
+                join f in myContext.UserRequests on e.NIK equals f.NIK
+                join o in myContext.Requests on f.RequestId equals o.RequestId
+                where f.Status == request
+                /*group f by new { o.RequestDate, e.NIK, e.FirstName, e.LastName, o.OvertimeName } into g
+                select new OvertimeResponseVM
+                {
+                    NIK = g.Key.NIK,
+                    FirstName = g.Key.FirstName,
+                    LastName = g.Key.LastName,
+                    OvertimeName = g.Key.OvertimeName,
+                    RequestDate = g.Key.RequestDate
+                }).ToList();*/
+                select new OvertimeResponseVM
+                {
+                    AccountId = e.NIK,
+                    RequestId = f.Request.RequestId,
+                    OvertimeName = f.Request.OvertimeName,
+                    RequestDate = f.Request.RequestDate,
+                    NIK = f.NIK,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    StartTime = f.Request.StartTime,
+                    EndTime = f.Request.EndTime,
+                    Task = f.Request.Task,
+                    Commission = f.Request.Commission,
+                    Status = f.Status
+                }).ToList();
+            return all;
+        }
         public IEnumerable<OvertimeResponseVM> GetAllRequestByStatus(int status)
         {
             var request = StatusRequest.Pending;

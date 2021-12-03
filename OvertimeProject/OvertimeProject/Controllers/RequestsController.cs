@@ -143,6 +143,19 @@ namespace OvertimeProject.Controllers
                 return NotFound("No Record");
             }
         }
+        [HttpGet("GetAllRequestByStatAndManagerId")]
+        public ActionResult GetAllRequestByStatAndManagerId([FromQuery(Name = "status")] int status, [FromQuery(Name = "managerId")] string managerId)
+        {
+            var get = repo.GetAllRequestByStatAndManagerId(status, managerId);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("No Record");
+            }
+        }
         [HttpGet("GetAllRequestByStatusAndNIK")]
         public ActionResult GetAllRequestByStatusAndNIK([FromQuery(Name = "status")] int status, [FromQuery(Name = "NIK")] string NIK)
         {
@@ -157,6 +170,19 @@ namespace OvertimeProject.Controllers
             }
         }
         //buat Finance
+        [HttpGet("GetAllRequestByStat")]
+        public ActionResult GetAllRequestByStat([FromQuery(Name = "status")] int status)
+        {
+            var get = repo.GetAllRequestByStat(status);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("No Record");
+            }
+        }
         [HttpGet("GetAllRequestByStatus")]
         public ActionResult GetAllRequestByStatus([FromQuery(Name = "status")] int status)
         {

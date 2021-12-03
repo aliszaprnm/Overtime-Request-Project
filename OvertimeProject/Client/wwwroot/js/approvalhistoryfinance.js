@@ -257,7 +257,7 @@ function getdatabyID(x) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dataCommission">Commission</label>
-                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${item.commission}" readonly>
+                            <input type="text" class="form-control" id="dataCommission" name="dataCommission" placeholder="Commission" value="Rp${new Intl.NumberFormat(['ban', 'id']).format(item.commission)}" readonly>
                         </div>
                     </div>
                     <div>
