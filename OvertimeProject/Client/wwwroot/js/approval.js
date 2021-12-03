@@ -97,7 +97,7 @@
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
                         case 1:
-                            status = '<span class="badge badge-primary badge-pill">' + 'Approved by Manager' + '</span>';
+                            status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
                             break;
                         case 2:
                             status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';

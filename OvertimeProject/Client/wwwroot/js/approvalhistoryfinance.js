@@ -18,8 +18,8 @@
             {
                 extend: 'excelHtml5',
                 name: 'excel',
-                title: 'Overtime Request History By Manager',
-                sheetName: 'Overtime Request History By Manager',
+                title: 'Overtime Request History By Finance',
+                sheetName: 'Overtime Request History By Finance',
                 text: '',
                 className: 'buttonHide fa fa-download btn-default',
                 fileName: 'Data',
@@ -31,8 +31,8 @@
             {
                 extend: 'pdfHtml5',
                 name: 'pdf',
-                title: 'Overtime Request History By Manager',
-                sheetName: 'Overtime Request History By Manager',
+                title: 'Overtime Request History By Finance',
+                sheetName: 'Overtime Request History By Finance',
                 text: '',
                 className: 'buttonHide fa fa-download btn-default',
                 fileName: 'Data',
@@ -92,8 +92,8 @@
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
-                    status = '';
-                    switch (data) {
+                    status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
+                    /*switch (data) {
                         case 0:
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
@@ -105,7 +105,7 @@
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
-                    }
+                    }*/
                     return status;
                 }
             },
