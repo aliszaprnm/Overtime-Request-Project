@@ -665,23 +665,23 @@ function getDataPending(requestDate) {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataStartTime">Start Time</label>
                             <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataEndTime">End Time</label>
                             <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataTask">Task</label>
-                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataTotal">Total Hours</label>
                             <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
                         </div>
                     </div>
                     <div class="form-row">
@@ -753,23 +753,23 @@ function getDataApprovedByManager(requestDate) {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataStartTime">Start Time</label>
                             <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataEndTime">End Time</label>
                             <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataTask">Task</label>
-                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataTotal">Total Hours</label>
                             <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
                         </div>
                     </div>
                     <div class="form-row">
@@ -841,23 +841,23 @@ function getDataApproved(requestDate) {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataStartTime">Start Time</label>
                             <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataEndTime">End Time</label>
                             <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataTask">Task</label>
-                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataTotal">Total Hours</label>
                             <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
                         </div>
                     </div>
                     <div class="form-row">
@@ -933,23 +933,23 @@ function getDataRejected(requestDate) {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataStartTime">Start Time</label>
                             <input type="text" class="form-control" id="dataStartTime" name="dataStartTime" value="${item.startTime.substr(11, 5)}" readonly>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataEndTime">End Time</label>
                             <input type="text" class="form-control" id="dataEndTime" name="dataEndTime" value="${item.endTime.substr(11, 5)}" readonly>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="dataTask">Task</label>
-                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="dataTotal">Total Hours</label>
                             <input type="text" class="form-control" id="dataTotal" name="dataTotal" placeholder="Total Hours" value="${diffTime} Hours" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="dataTask">Task</label>
+                            <input type="text" class="form-control" id="dataTask" name="dataTask" placeholder="Task" value="${item.task}" readonly>
                         </div>
                     </div>
                     <div class="form-row">

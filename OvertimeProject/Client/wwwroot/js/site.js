@@ -25,7 +25,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: 'https://localhost:44314/API/Requests/GetAllRequestByStatusAndNIK?status=2&nik=' + stringnip,
+    url: 'https://localhost:44314/API/Requests/GetAllRequestByStatAndNIK?status=2&nik=' + stringnip,
     dataSrc: ''
 }).done((result) => {
     /*    console.log(result.length);*/
