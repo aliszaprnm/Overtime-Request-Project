@@ -192,8 +192,8 @@
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
-                    status = '';
-                    switch (data) {
+                    status = '<span class="badge badge-secondary badge-pill">' + 'Approved by Manager' + '</span>';
+                    /*switch (data) {
                         case 0:
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
@@ -205,7 +205,7 @@
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
-                    }
+                    }*/
                     return status;
                     /*if (row['status'] == 0) {
                         return 'Pending'
@@ -306,8 +306,8 @@
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
-                    status = '';
-                    switch (data) {
+                    status = '<span class="badge badge-success badge-pill">' + 'Approved by Finance Controller' + '</span>';
+                    /*switch (data) {
                         case 0:
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
@@ -319,7 +319,7 @@
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
-                    }
+                    }*/
                     return status;
                     /*if (row['status'] == 0) {
                         return 'Pending'
@@ -420,8 +420,8 @@
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
-                    status = '';
-                    switch (data) {
+                    status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
+                    /*switch (data) {
                         case 0:
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
@@ -433,7 +433,7 @@
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
-                    }
+                    }*/
                     return status;
                     /*if (row['status'] == 0) {
                         return 'Pending'

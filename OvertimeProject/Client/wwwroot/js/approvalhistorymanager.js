@@ -92,8 +92,8 @@
             {
                 "data": "status",
                 "render": function (data, type, row, meta) {
-                    status = '';
-                    switch (data) {
+                    status = '<span class="badge badge-secondary badge-pill">' + 'Waiting Finance Controller Approval' + '</span>';
+                    /*switch (data) {
                         case 0:
                             status = '<span class="badge badge-warning badge-pill">' + 'Pending' + '</span>';
                             break;
@@ -105,7 +105,7 @@
                             break;
                         case 3:
                             status = '<span class="badge badge-danger badge-pill">' + 'Rejected' + '</span>';
-                    }
+                    }*/
                     return status;
                 }
             },
