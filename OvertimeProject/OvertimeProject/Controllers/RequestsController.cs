@@ -87,6 +87,21 @@ namespace OvertimeProject.Controllers
                 return NotFound("No Record");
             }
         }
+
+        [HttpGet("GetRequestByStatusAndDate")]
+        public ActionResult GetAllRequestByStatusAndNIK([FromQuery(Name = "status")] int status, [FromQuery(Name = "requestDate")] DateTime reqDate)
+        {
+            var get = repo.GetRequestByStatusAndDate(status, reqDate);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("No Record");
+            }
+        }
+
         [HttpGet("GetRequestByNIK/{NIK}")]
         public ActionResult GetRequestByNIK(string NIK)
         {
