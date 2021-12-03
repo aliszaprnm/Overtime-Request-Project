@@ -312,7 +312,7 @@ namespace OvertimeProject.Repository.Data
                 }).ToList();*/
             return all;
         }
-        /*public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndNIK(int status, string NIK)
+        public IEnumerable<OvertimeResponseVM> GetAllRequestByStatAndNIK(int status, string NIK)
         {
             var request = StatusRequest.Pending;
             if (status == 1)
@@ -348,7 +348,7 @@ namespace OvertimeProject.Repository.Data
                     Status = f.Status
                 }).ToList();
             return all;
-        }*/
+        }
 
         public IEnumerable<OvertimeResponseVM> GetAllRequestByStatusAndNIK(int status, string NIK)
         {

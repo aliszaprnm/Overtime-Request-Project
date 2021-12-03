@@ -169,6 +169,19 @@ namespace OvertimeProject.Controllers
                 return NotFound("No Record");
             }
         }
+        [HttpGet("GetAllRequestByStatAndNIK")]
+        public ActionResult GetAllRequestByStatAndNIK([FromQuery(Name = "status")] int status, [FromQuery(Name = "NIK")] string NIK)
+        {
+            var get = repo.GetAllRequestByStatAndNIK(status, NIK);
+            if (get != null)
+            {
+                return Ok(get);
+            }
+            else
+            {
+                return NotFound("No Record");
+            }
+        }
         //buat Finance
         [HttpGet("GetAllRequestByStat")]
         public ActionResult GetAllRequestByStat([FromQuery(Name = "status")] int status)
